@@ -20,10 +20,6 @@ O aplicativo trabalha com as seguintes features\n
 4. Especialidade\n
 ''')
 
-Idade=st.number_input(label="idade", 
-                    value=18,
-                    min_value=18,
-                    max_value=120)
 Crm=st.selectbox(label="medico_id", 
                  options=['100045/SP', 
         '100038/RJ', '100085/SP', '100024/SP', '100092/SP',
@@ -32,13 +28,42 @@ Crm=st.selectbox(label="medico_id",
        '100074/SP', '100047/SP', '100017/SP', '100031/RJ', '100093/SP',
        '100049/RJ', '100070/SP', '100097/SP', '100010/RJ', '100015/SP',
        '100055/SP'])
+st.write(f"O medico escolhido foi {Crm}")
+
+Sexo = st.selectbox(label="sexo_paciente",
+    options=["Female", "Male","Outros"])
+st.write("Voce selecionou:", Sexo)
+
 Especialidade=st.selectbox(label="especialidade", 
                  options=['Psicologo', 'Oncologia', 
                         'Oftalmologia', 'Cardiologista',
                         'Ginecologista', 'Cirurgiao Plastico', 
                         'Endocrinologia','Pediatra', 'Urologista', 'Neurologia', 'Ortopedia'
                         ])
-Sexo = st.radio(
-    "Selecione o genero",
-    ["Female", "Male","Outros"])
-st.write("Voce selecionou:", Sexo)
+Idade=st.number_input(label="idade", 
+                    value=18,
+                    min_value=18,
+                    max_value=120)
+st.write("Voce selecionou:", Idade)
+
+with open('model/pipe_xgbfinal.pkl', 'rb') as model_file:
+    model = pickle.load(model_file)
+
+    def prediction():
+        df_input=pd.DataFrame([{
+            "medico_id":Crm,
+            "idade":Idade,
+           "especialidade":Especialidade,
+           "sexo_paciente":Sexo,
+           "idade":Idade
+
+}])
+        predict=model.predict(df_input)[0]
+        return predict
+
+if st.button("Predict"):
+    try:
+        recomendacao=prediction()
+        st.success(f"A possivel recomendacao e {recomendacao}")
+    except Exception as error:
+        st.error(f"Erro em prever a possivel recomendacao {error}")
