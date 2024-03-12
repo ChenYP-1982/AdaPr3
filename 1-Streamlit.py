@@ -47,7 +47,7 @@ Idade=st.number_input(label="idade",
                     max_value=120)
 st.write("Voce selecionou:", Idade)
 
-with open('pipe_xgbfinal.pkl', 'rb') as model_file:
+with open('model/pipe_xgbfinal.pkl', 'rb') as model_file:
     model = pickle.load(model_file)
 
     def prediction():
