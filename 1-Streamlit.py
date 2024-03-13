@@ -5,6 +5,7 @@ import sklearn
 
 
 
+
 st.set_page_config(
     page_title="Pesquisa de satisfacao dos clientes",
     page_icon="🤖"
