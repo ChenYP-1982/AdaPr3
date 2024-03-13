@@ -1,7 +1,8 @@
 # Instruções para instalação
 
 ```bash
-conda create -n stenv python=3.8
-conda activate stenv
+conda create -n stenv1 python=3.9
+conda activate stenv1
 pip install -r Requirements.txt
+conda deactivate
 ```

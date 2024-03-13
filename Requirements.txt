@@ -1,12 +1,7 @@
-<<<<<<< HEAD
-pandas==2.2.1
+pandas==1.5.3
 numpy==1.26.4
-scikit-learn==1.4.1.post1
-seaborn==0.13.2
-matplotlib==3.8.3
+scikit-learn==1.2.2
 xgboost==2.0.3
-=======
-
 streamlit==1.17.0
 
->>>>>>> cbf9f4c3e524458d3338effe5f412e86c060f109
+
