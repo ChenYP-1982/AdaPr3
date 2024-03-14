@@ -1,6 +1,8 @@
-scikit-learn==1.2.1
+scikit-learn
 streamlit==1.17.0
 pandas==1.5.3
 altair<5 
+
+
 
 
