@@ -1,10 +1,11 @@
 import pandas as pd
 import pickle 
 import streamlit as st
-import sklearn
 
 
 
+with open('pipe_xgbfinal.pkl', 'rb') as model_file:
+    model = pickle.load(model_file)
 
 st.set_page_config(
     page_title="Pesquisa de satisfacao dos clientes",
@@ -50,20 +51,19 @@ Idade=st.number_input(label="idade",
                     max_value=120)
 st.write("Voce selecionou:", Idade)
 
-with open('model/pipe_xgbfinal.pkl', 'rb') as model_file:
-    model = pickle.load(model_file)
 
-    def prediction():
-        df_input=pd.DataFrame([{
-            "medico_id":Crm,
-            "idade":Idade,
-           "especialidade":Especialidade,
-           "sexo_paciente":Sexo,
-           "idade":Idade
+
+def prediction():
+    df_input=pd.DataFrame([{
+         "medico_id":Crm,
+         "idade":Idade,
+         "especialidade":Especialidade,
+         "sexo_paciente":Sexo,
+        "idade":Idade
 
 }])
-        predict=model.predict(df_input)[0]
-        return predict
+    predict=model.predict(df_input)[0]
+    return predict
 
 if st.button("Predict"):
     try:
