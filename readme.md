@@ -7,14 +7,15 @@ Processo de Criação do Banco de Dados
 
 1. Entendimento de Atributos e Entidades
 Exemplo: em uma entidade "Cliente", atributos podem incluir nome, idade, e-mail, etc.
-Entidades: Objetos do mundo real representados no banco de dados. Exemplo: "Cliente", "Produto", "Venda", etc.
-2. Cardinalidade
+
+2. Entidades: Objetos do mundo real representados no banco de dados. Exemplo: "Cliente", "Produto", "Venda", etc.
+
 3. Cardinalidade: Define o número de instâncias de uma entidade que podem estar associadas a instâncias de outra entidade. Exemplo: "um para um", "um para muitos", "muitos para muitos".
 
 4. Criação de Tabelas
 Utilizando um sistema de gerenciamento de banco de dados (SGBD) como MySQL, PostgreSQL, SQLServer dentre outros  criaremos tabelas para armazenar dados de acordo com as entidades identificadas e seus atributos.
 
-6. Consultas para Análise de Dados
+5. Consultas para Análise de Dados
 Utilizaremos consultas SQL para extrair informações úteis do banco de dados, como estatísticas, tendências e padrões.
 
 # Exportação de Dados para Desenvolvimento de Machine Learning
